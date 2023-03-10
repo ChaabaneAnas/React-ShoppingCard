@@ -21,5 +21,3 @@ export const reducerFn = (
       return state;
   }
 };
-
-
