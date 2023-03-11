@@ -8,7 +8,7 @@ export interface productInterface {
   image: string;
   price: number;
   category: string;
-  description: string;
+  description: stringp;
   rating: ratingType;
 }
 

@@ -1,14 +1,30 @@
 .Product {
-  width: 200px;
-  height: 400px;
+  text-decoration: none;
+  background: white;
+  max-width: 400px;
+  max-height: 500px;
+
+}
+
+span {
+  opacity: 50%;
 }
 
 .Product_thumbnail {
   width: 100%;
-  height: 300px;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Product_thumbnail img {
   max-width: 100%;
-  max-height: 60%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+a {
+  text-decoration: none;
+  color: #3a3a44;
 }
