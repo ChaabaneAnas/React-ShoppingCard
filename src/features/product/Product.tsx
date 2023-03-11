@@ -1,21 +1,25 @@
-import { useNavigate } from 'react-router-dom';
 import styles from './prodructs.module.css';
+import { Link } from 'react-router-dom';
 interface productProps {
   title: string;
   image: string;
+  category: string;
 }
 
-const Product: React.FC<productProps> = ({ title, image }): JSX.Element => {
-  const navitage = useNavigate();
-  function handleClick() {
-    navitage(`products/${title.trim()}`);
-  }
+const Product: React.FC<productProps> = ({
+  title,
+  image,
+  category,
+}): JSX.Element => {
   return (
-    <div className={styles.Product} onClick={handleClick}>
-      <div className={styles.Product_thumbnail}>
-        <img src={image} alt='Product' />
-        <h2 className={styles.Product_title}>{title}</h2>
-      </div>
+    <div className={styles.Product}>
+      <Link className={styles.card} to={`products/${title.trim()}`}>
+        <div className={styles.Product_thumbnail}>
+          <img src={image} alt='Product' />
+        </div>
+        <span>{category}</span>
+        <h4 className={styles.Product_title}>{title}</h4>
+      </Link>
     </div>
   );
 };
