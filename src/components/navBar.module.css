@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+.nav {
+  background-color: #3a3a44;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav h2,
+.nav a {
+  padding: .6rem 0;
+}
+
+.nav ul {
+  width: 45%;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav a {
+  color: white
+}
+
+.nav a:hover {
+  border-bottom: 3px solid orange;
+}
+
+.nav .active {
+  border-bottom: 3px solid orange;
+}
+
+.hamburger {
+  display: none;
+}
+
+.hamburger div {
+  height: 1rem;
+  border: 1px solid #3a3a44;
+}
