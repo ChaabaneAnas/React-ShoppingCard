@@ -46,3 +46,21 @@
   height: 1rem;
   border: 1px solid #3a3a44;
 }
+
+@media screen and (max-width: 768px) {
+  /* CSS rules for small screens go here */
+}
+
+
+@media screen and (max-width: 768px) {
+  .nav ul {
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    width: 300px;
+    position: fixed;
+    right: 0;
+    top: 20px;
+    padding: 20px 10px;
+  }
+}
