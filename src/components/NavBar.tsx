@@ -9,9 +9,9 @@ interface propTypes {
 const NavBar: React.FC<propTypes> = ({ logo, links }): JSX.Element => {
   return (
     <nav className={styles.nav}>
-      <h2>
+      <h1>
         <NavLink to='/'>{logo}</NavLink>
-      </h2>
+      </h1>
 
       <ul className={styles.flex}>
         {links.map((link, index) => (

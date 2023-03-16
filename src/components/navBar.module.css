@@ -12,11 +12,37 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 20px 80px;
+  transition: 0.3s ease-in-out;
 }
 
-.nav h2,
+.nav h1 a {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 .nav a {
-  padding: .6rem 0;
+  color: white;
+  position: relative;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+
+.nav a:hover {
+  color: orange;
+}
+
+
+.nav a:hover::after,
+.nav .active {
+  content: '';
+  width: 60%;
+  height: 3px;
+  background: orange;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
 }
 
 .nav ul {
@@ -26,26 +52,8 @@
   justify-content: space-around;
 }
 
-.nav a {
-  color: white
-}
 
-.nav a:hover {
-  border-bottom: 3px solid orange;
-}
 
-.nav .active {
-  border-bottom: 3px solid orange;
-}
-
-.hamburger {
-  display: none;
-}
-
-.hamburger div {
-  height: 1rem;
-  border: 1px solid #3a3a44;
-}
 
 @media screen and (max-width: 768px) {
   /* CSS rules for small screens go here */
@@ -54,13 +62,22 @@
 
 @media screen and (max-width: 768px) {
   .nav ul {
+    background-color: #3a3a44;
     flex-direction: column;
     align-items: start;
     justify-content: start;
     width: 300px;
-    position: fixed;
+    position: absolute;
     right: 0;
-    top: 20px;
+    top: 46px;
     padding: 20px 10px;
   }
+
+  .hamburger div {
+    width: 1rem;
+    height: 3px;
+    background: white;
+    margin: .2rem;
+  }
+
 }
