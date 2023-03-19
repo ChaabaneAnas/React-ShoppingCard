@@ -11,21 +11,22 @@
   color: white;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 20px 80px;
-  transition: 0.3s ease-in-out;
+  justify-content: space-between;
+  padding: 2% 7%;
 }
 
-.nav h1 a {
-  font-size: 1.5rem;
+nav a.brand {
+  font-size: 2rem;
   font-weight: 700;
 }
+
 
 .nav a {
   color: white;
   position: relative;
   font-size: 1.3rem;
   font-weight: 500;
+  transition: 0.2s ease-in-out;
 }
 
 
@@ -33,9 +34,13 @@
   color: orange;
 }
 
+.nav a.Active {
+  color: orange;
+}
+
 
 .nav a:hover::after,
-.nav .active {
+.nav a.Active::after {
   content: '';
   width: 60%;
   height: 3px;
@@ -45,37 +50,61 @@
   left: 0;
 }
 
-.nav ul {
+
+
+.navLinks {
   width: 45%;
   color: white;
   display: flex;
   justify-content: space-around;
 }
 
-
-
-
-@media screen and (max-width: 768px) {
-  /* CSS rules for small screens go here */
+.hamburger {
+  display: none;
 }
 
 
 @media screen and (max-width: 768px) {
-  .nav ul {
+
+  .nav {
+    position: relative;
+    background-color: #3a3a44;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+  .navLinks {
     background-color: #3a3a44;
     flex-direction: column;
+    gap: 3%;
     align-items: start;
     justify-content: start;
-    width: 300px;
     position: absolute;
-    right: 0;
-    top: 46px;
-    padding: 20px 10px;
+    right: -100%;
+    top: 100%;
+    display: flex;
+    height: 100vh;
+    width: 300px;
+    padding: 7% 9%;
+    transition: 0.9ms ease-in-out;
   }
+
+  .navLinks.active {
+    right: 0%;
+  }
+
+  .hamburger {
+    cursor: pointer;
+    display: block;
+  }
+
 
   .hamburger div {
     width: 1rem;
-    height: 3px;
+    height: 2px;
     background: white;
     margin: .2rem;
   }
