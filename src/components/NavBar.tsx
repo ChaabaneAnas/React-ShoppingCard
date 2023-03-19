@@ -1,5 +1,6 @@
 import styles from './navBar.module.css';
 import { NavLink, NavLinkProps } from 'react-router-dom';
+import { useState } from 'react';
 
 interface propTypes {
   logo: string;
@@ -7,19 +8,28 @@ interface propTypes {
 }
 
 const NavBar: React.FC<propTypes> = ({ logo, links }): JSX.Element => {
+  const [toggle, setToggle] = useState(false);
+  function handleToggleMenu() {
+    setToggle(!toggle);
+  }
+
   return (
     <nav className={styles.nav}>
-      <h1>
-        <NavLink to='/'>{logo}</NavLink>
-      </h1>
+      <NavLink className={styles.brand} to='/'>
+        {logo}
+      </NavLink>
 
-      <ul className={styles.flex}>
+      <ul
+        className={
+          toggle ? `${styles.navLinks} ${styles.active}` : styles.navLinks
+        }
+      >
         {links.map((link, index) => (
           <li key={index}>
             <NavLink
               to={index === 0 ? '/' : `/${link}`}
               className={({ isActive, isPending }) =>
-                isPending ? 'pending' : isActive ? 'Active' : ''
+                isPending ? 'pending' : isActive ? styles.Active : ''
               }
             >
               {link}
@@ -27,7 +37,7 @@ const NavBar: React.FC<propTypes> = ({ logo, links }): JSX.Element => {
           </li>
         ))}
       </ul>
-      <div className={styles.hamburger}>
+      <div className={styles.hamburger} onClick={handleToggleMenu}>
         <div></div>
         <div></div>
         <div></div>
