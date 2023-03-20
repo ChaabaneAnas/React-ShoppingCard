@@ -8,7 +8,7 @@ export interface productInterface {
   image: string;
   price: number;
   category: string;
-  description: stringp;
+  description: string;
   rating: ratingType;
 }
 
@@ -19,4 +19,5 @@ export interface actionInterface {
 
 export interface stateInterface {
   products: productInterface[];
+  shoppingCart: productInterface[];
 }

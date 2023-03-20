@@ -1,0 +1,9 @@
+.addToCart {
+  cursor: pointer;
+}
+
+.addToCart:hover {
+  color: lightgoldenrodyellow;
+  transform: scale(1.2);
+  font-weight: 900;
+}
