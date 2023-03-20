@@ -38,9 +38,9 @@ const NavBar: React.FC<propTypes> = ({ logo, links }): JSX.Element => {
         ))}
       </ul>
       <div className={styles.hamburger} onClick={handleToggleMenu}>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div className={styles.line}></div>
+        <div className={styles.line}></div>
+        <div className={styles.line}></div>
       </div>
     </nav>
   );

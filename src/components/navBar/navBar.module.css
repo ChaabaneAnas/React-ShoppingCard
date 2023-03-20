@@ -89,7 +89,7 @@ nav a.brand {
     height: 100vh;
     width: 300px;
     padding: 7% 9%;
-    transition: 0.9ms ease-in-out;
+    transition: 0.5s ease-in-out;
   }
 
   .navLinks.active {
@@ -99,14 +99,18 @@ nav a.brand {
   .hamburger {
     cursor: pointer;
     display: block;
+    color: white;
   }
 
-
-  .hamburger div {
+  .hamburger .line {
     width: 1rem;
     height: 2px;
     background: white;
     margin: .2rem;
+  }
+
+  .hamburger .line:hover {
+    background: orange;
   }
 
 }
