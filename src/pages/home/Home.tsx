@@ -15,7 +15,7 @@ const Home: React.FC<propTypes> = ({ dispatch }): JSX.Element => {
     <>
       {!state?.products.length && <Spiner />}
       {state?.products.length && (
-        <div>
+        <div className={styles.container}>
           {state?.products.map((product) => (
             <Product key={product.id} product={product} dispatch={dispatch} />
           ))}
