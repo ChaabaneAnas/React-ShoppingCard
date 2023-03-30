@@ -11,7 +11,7 @@ const Index: React.FC<propTypes> = ({ dispatch }): JSX.Element => {
   const product = state?.products.find(
     (product) => product.title.trim() === title?.trim()
   );
-  console.log('Product', product);
+  console.log('render product');
   return (
     <div className='card'>
       <img src={product?.image} alt='' />

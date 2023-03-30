@@ -1,4 +1,4 @@
-import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { MdOutlineAddShoppingCart } from 'react-icons/md';
 import styles from './addButton.module.css';
 
 interface propTypes {
@@ -7,7 +7,7 @@ interface propTypes {
 }
 const AddButton: React.FC<propTypes> = ({ onClick, color }): JSX.Element => {
   return (
-    <AiOutlineShoppingCart
+    <MdOutlineAddShoppingCart
       className={styles.addToCart}
       color='red'
       onClick={onClick}

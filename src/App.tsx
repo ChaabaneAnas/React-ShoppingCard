@@ -12,6 +12,7 @@ import Spiner from './components/spiner/Spiner';
 function App(): JSX.Element {
   const [state, dispatch] = useReducer(reducerFn, initialState);
 
+  console.log('render App');
   useEffect(() => {
     fetch('https://fakestoreapi.com/products').then((res) =>
       res
@@ -19,12 +20,11 @@ function App(): JSX.Element {
         .then((data) => dispatch({ type: 'ADD_PRODUCTS', payload: data }))
     );
   }, []);
-
   return (
-    <ctx.Provider value={state}>
-      <div className='App'>
+    <div className='App'>
       {!state?.products.length && <Spiner />}
 
+      <ctx.Provider value={state}>
         <Layout>
           <Routes>
             <Route path='/' element={<Home dispatch={dispatch} />} />
@@ -32,11 +32,10 @@ function App(): JSX.Element {
               path='products/:title'
               element={<Index dispatch={dispatch} />}
             />
-            <Route path='/cart' element={<Cart />} />
           </Routes>
         </Layout>
-      </div>
-    </ctx.Provider>
+      </ctx.Provider>
+    </div>
   );
 }
 

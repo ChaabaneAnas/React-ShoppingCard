@@ -7,7 +7,7 @@ import { ctx } from '../../context';
 
 interface productProps {
   product: productInterface;
-  dispatch: any;
+  dispatch?: any;
 }
 
 const Product: React.FC<productProps> = ({
