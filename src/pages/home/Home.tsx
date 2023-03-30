@@ -10,6 +10,7 @@ interface propTypes {
 
 const Home: React.FC<propTypes> = ({ dispatch }): JSX.Element => {
   const state = useContext(ctx);
+  console.log('render home');
 
   return (
     <>
