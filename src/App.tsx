@@ -6,7 +6,6 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Index from './pages/productDetails/productDetails';
 import Layout from './features/layout/layout';
-import Cart from './pages/cart/Cart';
 import Spiner from './components/spiner/Spiner';
 
 function App(): JSX.Element {

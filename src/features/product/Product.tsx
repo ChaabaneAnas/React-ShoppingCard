@@ -2,6 +2,7 @@ import styles from './prodructs.module.css';
 import { Link } from 'react-router-dom';
 import AddButton from '../../components/addButton/addButton';
 import { productInterface } from '../../globalTypes';
+import { shoppingCartInterface } from '../../globalTypes';
 import { useContext } from 'react';
 import { ctx } from '../../context';
 
@@ -14,10 +15,14 @@ const Product: React.FC<productProps> = ({
   product,
   dispatch,
 }): JSX.Element => {
-  const state = useContext(ctx);
-  const { title, image, category, price } = product;
+  const { id, title, image, category, price } = product;
+  const quantity = 0;
+  console.log(id);
   function handleAdd(e: React.MouseEvent<SVGAElement>): void {
-    dispatch({ type: 'ADD_TO_CART', payload: product });
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload: { id, quantity },
+    });
   }
 
   return (

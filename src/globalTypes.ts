@@ -17,7 +17,13 @@ export interface actionInterface {
   payload: unknown;
 }
 
+export interface shoppingCartInterface {
+  id: number;
+  quantity: number;
+}
+
 export interface stateInterface {
   products: productInterface[];
-  shoppingCart: productInterface[];
+  shoppingCart: shoppingCartInterface[];
+  getQuantity: (id: number) => void;
 }
