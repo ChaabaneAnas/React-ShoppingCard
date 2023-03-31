@@ -1,12 +1,10 @@
 import { ReactNode, useContext, useState } from 'react';
-import Basket from '../../components/basket/Basket.js';
 import NavBar from '../../components/navBar/NavBar.js';
 import { ctx } from '../../context/index.js';
 import Cart from '../../pages/cart/Cart.js';
 
 interface PropType {
   children: ReactNode;
-  count: number;
 }
 const Layout = ({ children }: PropType): JSX.Element => {
   const [toggleCart, setToggleCart] = useState(false);
@@ -17,7 +15,6 @@ const Layout = ({ children }: PropType): JSX.Element => {
         <NavBar logo='Gumia' count={basket.length} links={['Home', 'Sales']} />
       </header>
       <Cart basket={basket} />
-
       <section className='products_container'>{children}</section>
     </main>
   );
