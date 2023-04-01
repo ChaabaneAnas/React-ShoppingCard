@@ -4,10 +4,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: red;
+  color: orange;
   border-radius: 50%;
   background-color: white;
   position: relative;
+  cursor: pointer;
+}
+
+.container:hover {
+  border: 3px solid orange;
+}
+
+.basket {
+  width: 50%;
+  height: 50%;
+  translate: -10% 0;
 }
 
 .badge {
@@ -21,7 +32,7 @@
   align-items: center;
   color: white;
   background-color: red;
-  top: 0;
-  left: 0;
-  translate: -25% -25%;
+  bottom: 0;
+  right: 0;
+  translate: 25% 25%;
 }

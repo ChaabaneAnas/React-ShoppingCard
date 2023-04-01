@@ -2,9 +2,7 @@ import styles from './prodructs.module.css';
 import { Link } from 'react-router-dom';
 import AddButton from '../../components/addButton/addButton';
 import { productInterface } from '../../globalTypes';
-import { shoppingCartInterface } from '../../globalTypes';
-import { useContext } from 'react';
-import { ctx } from '../../context';
+import { formatCurrency } from "../../utility's/formatCurrency";
 
 interface productProps {
   product: productInterface;
@@ -16,12 +14,10 @@ const Product: React.FC<productProps> = ({
   dispatch,
 }): JSX.Element => {
   const { id, title, image, category, price } = product;
-  const quantity = 0;
-  console.log(id);
   function handleAdd(e: React.MouseEvent<SVGAElement>): void {
     dispatch({
       type: 'ADD_TO_CART',
-      payload: { id, quantity },
+      payload: { id, quantity: 1 },
     });
   }
 
@@ -35,7 +31,7 @@ const Product: React.FC<productProps> = ({
         <h4 className={styles.Product_title}>{title}</h4>
       </Link>
       <footer className={styles.footer}>
-        <span>{price}$</span> <AddButton onClick={handleAdd} />
+        <span>{formatCurrency(price)}</span> <AddButton onClick={handleAdd} />
       </footer>
     </div>
   );
