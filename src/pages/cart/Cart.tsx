@@ -1,15 +1,36 @@
 import styles from './cart.module.css';
-import { shoppingCartInterface } from '../../globalTypes';
+import { useContext } from 'react';
+import { ctx } from '../../context';
+import CartItem from '../../components/cartItem/CartItem';
+import { formatCurrency } from "../../utility's/formatCurrency";
 
 interface propTypes {
-  basket: shoppingCartInterface[];
+  isOpen: boolean;
 }
 
-const Cart = ({ basket }: propTypes) => {
+const Cart = ({ isOpen }: propTypes) => {
+  const { shoppingCart, products } = useContext(ctx)!;
   return (
-    <div className={styles.container}>
-      <h2>My Card</h2>
-      <ul>{basket?.map((item) => item.quantity)}</ul>
+    <div
+      className={
+        isOpen ? `${styles.container} ${styles.active}` : styles.container
+      }
+    >
+      <h2>My Cart</h2>
+      <ul className={styles.items}>
+        {shoppingCart.map((item) => (
+          <CartItem {...item} />
+        ))}
+      </ul>
+      <h4>
+        Total:
+        {formatCurrency(
+          shoppingCart.reduce((acc, curr) => {
+            const item = products.find((item) => item.id === curr.id);
+            return acc + (item?.price || 0)  * curr.quantity;
+          }, 0)
+        )}
+      </h4>
     </div>
   );
 };

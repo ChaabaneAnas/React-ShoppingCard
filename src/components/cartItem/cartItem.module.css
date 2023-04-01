@@ -1,0 +1,19 @@
+.container {
+  border: 2px solid #777;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-bottom: .5rem;
+  display: flex;
+  width: 100%;
+  gap: 2%;
+}
+
+.container img {
+  width: 20%;
+  object-fit: contain;
+}
+
+
+.itemTotal {
+  margin-top: auto;
+}

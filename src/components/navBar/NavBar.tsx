@@ -4,17 +4,17 @@ import { useState } from 'react';
 import Basket from '../basket/Basket';
 
 interface propTypes {
+  onToggle: () => void;
   logo: string;
   links: string[];
-  count: number;
   props?: any;
 }
 
 const NavBar: React.FC<propTypes> = ({
   logo,
   links,
-  count,
   props,
+  onToggle,
 }): JSX.Element => {
   const [toggle, setToggle] = useState(false);
   function handleToggleMenu() {
@@ -44,8 +44,9 @@ const NavBar: React.FC<propTypes> = ({
             </NavLink>
           </li>
         ))}
-        <Basket count={count} />
       </ul>
+
+      <Basket onToggle={onToggle} />
 
       <div className={styles.hamburger} onClick={handleToggleMenu}>
         <div className={styles.line}></div>

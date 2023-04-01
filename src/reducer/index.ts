@@ -18,16 +18,13 @@ export const reducerFn = (
   action: actionInterface
 ): stateInterface => {
   const { type, payload } = action;
-  const { id } = payload;
+  const { id } = payload as shoppingCartInterface;
   switch (type) {
     case 'ADD_PRODUCTS':
       return { ...state, products: payload as productInterface[] };
 
     case 'ADD_TO_CART':
-      console.log(
-        state.shoppingCart.find((item) => item.id === id) == undefined
-      );
-      if (state.shoppingCart.find((item) => item.id === id) == undefined) {
+      if (state.shoppingCart.find((item) => item.id === id) === undefined) {
         return {
           ...state,
           shoppingCart: [
@@ -36,10 +33,14 @@ export const reducerFn = (
           ],
         };
       } else {
-        state.shoppingCart.map((item) => {
-          console.log(item.id);
-          if (item.id === id) return { ...item, quantity: item.quantity + 1 };
-        });
+        return {
+          ...state,
+          shoppingCart: state.shoppingCart.map((item) => {
+            if (item.id === id) {
+              return { ...item, quantity: item.quantity + 1 };
+            } else return item;
+          }),
+        };
       }
     default:
       return state;
